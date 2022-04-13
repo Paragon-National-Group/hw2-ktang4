@@ -19,17 +19,34 @@
 #     iterative_palindrome(12) -> false
 #     iterative_palindrome(2468642) -> true
 def iterative_palindrome(n):
-    #TODO
-    return
+    number = str(n)
+    palindrome = True
+
+    for i in range(round(len(number)/2)):
+        if number[i] != number[-i - 1]:
+            palindrome = False
+            break
+    
+    return palindrome
 
 # This function is the same as iterative_palindrome() except instead of using a
 # loop, implement the function in a recursive way.
 # Ex) recursive_palindrome(1) -> true
 #     recursive_palindrome(12) -> false
 #     recursive_palindrome(2468642) -> true
-def recurisve_palindrome(n):
-    #TODO
-    return
+def recursive_palindrome(n):
+    if len(str(n)) == 1:
+        return True
+    elif len(str(n)) == 2:
+        number = str(n)
+        if number[0] == number[1]:
+            return True
+    else:
+        number = str(n)
+        if number[0] == number[-1]:
+            return recursive_palindrome(int(number[1:-1]))
+        else: 
+            return False
 
 # Helper function for sum_factorials(). Takes a number as an argument and returns
 # the factorial of that number.
@@ -37,8 +54,10 @@ def recurisve_palindrome(n):
 #     factorial(4) -> 24
 #     factorial(7) -> 5040
 def factorial(n):
-    #TODO
-    return
+    if n == 1:
+        return n
+    else:
+        return n * factorial(n-1)
 
 # Helper function for sum_factorials(). Takes a number as an argument and returns
 # a boolean value of true or false that shows whether the inputted number is a 
@@ -47,33 +66,35 @@ def factorial(n):
 #     is_prime(12) -> false
 #     is_prime(23) -> true
 def is_prime(n):
-    #TODO
-    return
+    for i in range(2, int(n/2)):
+        if n % i != 0:
+            return False
+
+    return True
 
 # Function that creates a node to help testing of sum_factorials()
 class Node:
     def __init__(self, content): 
         self.content = content
-        self.content = next
+        self.next = next
 
-# Function to insert a node to the beginning of a linked list
-def push(head_ptr, new_content):
-    new_node = Node(0)
-    new_node.content = new_content
-    new_node.next = (head_ptr)
-    (head_ptr) = new_node
-    return head_ptr
+    # Function to insert a node to the beginning of a linked list
+    def push(head_ptr, new_content):
+        new_node = Node(0)
+        new_node.content = new_content
+        new_node.next = (head_ptr)
+        (head_ptr) = new_node
+        return head_ptr
 
-# This function takes a pointer to the head node of the linked list as an argument
-# and returns the sum of factorials of prime numbers in the linked list. Above are
-# two helper functions for this that are highly recommended.
-# Ex) lst = None
-#     lst = push(lst, 2)
-#     lst = push(lst, 14)
-#     lst = push(lst, 5)
-#     lst = push(lst, 3)
-#     lst = push(lst, 6)
-#     sum_factorials(lst) -> 128
-def sum_factorials(head_ptr):
-    #TODO
-    return
+    # This function takes a pointer to the head node of the linked list as an argument
+    # and returns the sum of factorials of prime numbers in the linked list. Above are
+    # two helper functions for this that are highly recommended.
+    # Ex) lst = None
+    #     lst = push(lst, 2)
+    #     lst = push(lst, 14)
+    #     lst = push(lst, 5)
+    #     lst = push(lst, 3)
+    #     lst = push(lst, 6)
+    #     sum_factorials(lst) -> 128
+    def sum_factorials(head_ptr):
+        #Unsure how to do
